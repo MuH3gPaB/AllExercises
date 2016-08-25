@@ -13,6 +13,7 @@
         <module>Interview</module>
         <module>Overs</module>
         <module>IO</module>
+        <module>StringDance</module>
     </modules>
 
     <dependencies>
