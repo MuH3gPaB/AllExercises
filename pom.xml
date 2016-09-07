@@ -14,6 +14,8 @@
         <module>Overs</module>
         <module>IO</module>
         <module>StringDance</module>
+        <module>02_Patterns</module>
+        <module>03_Reflection</module>
     </modules>
 
     <dependencies>
@@ -21,6 +23,21 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.plexus</groupId>
+            <artifactId>plexus-utils</artifactId>
+            <version>3.0.22</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.javascript</groupId>
+            <artifactId>closure-compiler</artifactId>
+            <version>v20150505</version>
+        </dependency>
+        <dependency>
+            <groupId>com.yahoo.platform.yui</groupId>
+            <artifactId>yuicompressor</artifactId>
+            <version>2.4.8</version>
         </dependency>
     </dependencies>
 
