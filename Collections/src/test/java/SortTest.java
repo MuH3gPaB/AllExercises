@@ -18,13 +18,14 @@ public class SortTest extends Assert {
     @Parameterized.Parameters
     public static Runnable[] getSorts() {
         return new Runnable[]{
-                () -> IntSorts.mergeSort(array)
+                () -> IntSorts.mergeSort(array),
+                () -> IntSorts.selectionSort(array)
         };
     }
 
     @Test
     public void simpleSortTest() throws Exception {
-        array = new int[]{0, 12, -1, 22, 999, 0, -15};
+        array = new int[]{0, 12, -1, 22, 999, 0, -15, 45, -12, 24345, Integer.MAX_VALUE};
 
         checkSortAlgorithm();
     }

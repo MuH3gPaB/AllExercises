@@ -4,6 +4,29 @@ public class IntSorts {
     private IntSorts() {
     }
 
+    // Selection sort
+    public static void selectionSort(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            swap(array, i, getIndexMin(array, i, array.length));
+        }
+    }
+
+    private static int getIndexMin(int[] array, int from, int to) {
+        int minIndex = from;
+        for (int i = from; i < to; i++) {
+            if (array[i] < array[minIndex]) minIndex = i;
+        }
+        return minIndex;
+    }
+
+    private static void swap(int[] array, int first, int second) {
+        int tmp = array[first];
+        array[first] = array[second];
+        array[second] = tmp;
+    }
+
+
+    // Merge sort
     public static void mergeSort(int[] array) {
         int firstCell = (int) Math.pow(2, Math.ceil(Math.log(array.length)));
         mergeSort1(firstCell, array);
