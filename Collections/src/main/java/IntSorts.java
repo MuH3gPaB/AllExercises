@@ -34,7 +34,21 @@ public class IntSorts {
         }
     }
 
-    
+    // Shake sort
+    public static void shakeSort(int[] array){
+        for (int i = 0; i < array.length/2; i++) {
+            int leftLimit = i;
+            int rightLimit = array.length - i - 1;
+
+            for (int j = leftLimit; j < rightLimit; j++) {
+                if (array[j] > array[j + 1]) swap(array, j, j + 1);
+            }
+
+            for (int j = rightLimit; j > leftLimit ; j--) {
+                if (array[j] < array[j - 1]) swap(array, j, j - 1);
+            }
+        }
+    }
 
     // Merge sort
     public static void mergeSort(int[] array) {
