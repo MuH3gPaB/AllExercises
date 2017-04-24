@@ -21,7 +21,8 @@ public class SortTest extends Assert {
                 () -> IntSorts.mergeSort(array),
                 () -> IntSorts.selectionSort(array),
                 () -> IntSorts.bubbleSort(array),
-                () -> IntSorts.shakeSort(array)
+                () -> IntSorts.shakeSort(array),
+                () -> IntSorts.quickSort(array)
         };
     }
 

@@ -1,4 +1,6 @@
+import java.lang.reflect.Array;
 import java.util.Arrays;
+import java.util.Random;
 
 public class IntSorts {
     private IntSorts() {
@@ -35,8 +37,8 @@ public class IntSorts {
     }
 
     // Shake sort
-    public static void shakeSort(int[] array){
-        for (int i = 0; i < array.length/2; i++) {
+    public static void shakeSort(int[] array) {
+        for (int i = 0; i < array.length / 2; i++) {
             int leftLimit = i;
             int rightLimit = array.length - i - 1;
 
@@ -44,7 +46,7 @@ public class IntSorts {
                 if (array[j] > array[j + 1]) swap(array, j, j + 1);
             }
 
-            for (int j = rightLimit; j > leftLimit ; j--) {
+            for (int j = rightLimit; j > leftLimit; j--) {
                 if (array[j] < array[j - 1]) swap(array, j, j - 1);
             }
         }
@@ -84,6 +86,35 @@ public class IntSorts {
             else
                 data[index] = (first[i] > second[j]) ? second[j++] : first[i++];
         }
+    }
+
+    // Quick sort
+    public static void quickSort(int[] array) {
+        quickSort1(array, 0, array.length);
+    }
+
+    private static void quickSort1(int[] array, int from, int to) {
+        if (Math.abs(to - from) <= 1) return;
+
+        int random = Math.abs(new Random().nextInt());
+        int pivotPosition = from + random % (to - from);
+        int pivot = array[pivotPosition];
+
+        int leftMark = from;
+        int rightMark = to - 1;
+
+        while (leftMark < rightMark) {
+            while (array[leftMark] < pivot && leftMark < rightMark) leftMark++;
+            while (array[rightMark] > pivot && leftMark < rightMark) rightMark--;
+            if (array[leftMark] == array[rightMark]) {
+                leftMark++;
+                continue;
+            }
+            swap(array, leftMark, rightMark);
+        }
+
+        quickSort1(array, from, rightMark);
+        quickSort1(array, rightMark, to);
     }
 
 }
