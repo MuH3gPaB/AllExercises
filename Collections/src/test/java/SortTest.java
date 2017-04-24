@@ -19,7 +19,8 @@ public class SortTest extends Assert {
     public static Runnable[] getSorts() {
         return new Runnable[]{
                 () -> IntSorts.mergeSort(array),
-                () -> IntSorts.selectionSort(array)
+                () -> IntSorts.selectionSort(array),
+                () -> IntSorts.bubbleSort(array)
         };
     }
 

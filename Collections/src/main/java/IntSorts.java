@@ -25,6 +25,16 @@ public class IntSorts {
         array[second] = tmp;
     }
 
+    // Bubble sort
+    public static void bubbleSort(int[] array) {
+        for (int i = 1; i < array.length; i++) {
+            for (int j = 0; j < array.length - i; j++) {
+                if (array[j] > array[j + 1]) swap(array, j, j + 1);
+            }
+        }
+    }
+
+    
 
     // Merge sort
     public static void mergeSort(int[] array) {
