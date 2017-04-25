@@ -1,4 +1,3 @@
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Random;
 
@@ -71,15 +70,35 @@ public class IntSorts {
     public static void insertSort(int[] array) {
         for (int i = 0; i < array.length; i++) {
             int element = array[i];
-            int insertToIndex = 0;
-            for (int j = 0; j <= i; j++) {
-                if (array[j] >= element) {
-                    insertToIndex = j;
-                    break;
-                }
+            int insertToIndex = i;
+            while (insertToIndex > 0 && array[insertToIndex - 1] > element) {
+                insertToIndex--;
+                array[insertToIndex + 1] = array[insertToIndex];
             }
-            System.arraycopy(array, insertToIndex, array, insertToIndex + 1, i - insertToIndex);
             array[insertToIndex] = element;
+        }
+    }
+
+    // Shell sort
+    public static void shellSort(int[] array) {
+        int interval = array.length / 2;
+        while (interval > 0) {
+            sortInterval(array, interval);
+            interval = interval / 2;
+        }
+    }
+
+    private static void sortInterval(int[] array, int interval) {
+        for (int i = 0; i < interval; i++) {
+            for (int j = i; j < array.length; j += interval) {
+                int element = array[j];
+                int insertToIndex = j;
+                while (insertToIndex > i && array[insertToIndex - interval] > element) {
+                    insertToIndex -= interval;
+                    array[insertToIndex + interval] = array[insertToIndex];
+                }
+                array[insertToIndex] = element;
+            }
         }
     }
 
