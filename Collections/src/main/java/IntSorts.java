@@ -67,6 +67,22 @@ public class IntSorts {
         }
     }
 
+    // Insert sort
+    public static void insertSort(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            int element = array[i];
+            int insertToIndex = 0;
+            for (int j = 0; j <= i; j++) {
+                if (array[j] >= element) {
+                    insertToIndex = j;
+                    break;
+                }
+            }
+            System.arraycopy(array, insertToIndex, array, insertToIndex + 1, i - insertToIndex);
+            array[insertToIndex] = element;
+        }
+    }
+
     // Merge sort
     public static void mergeSort(int[] array) {
         int firstCell = (int) Math.pow(2, Math.ceil(Math.log(array.length)));
