@@ -52,6 +52,21 @@ public class IntSorts {
         }
     }
 
+    // Gnome sort
+    public static void gnomeSort(int[] array) {
+        int position = 0;
+        while (position < array.length) {
+            if (position == 0) {
+                position++;
+            } else if (array[position - 1] > array[position]) {
+                swap(array, position - 1, position);
+                position--;
+            } else {
+                position++;
+            }
+        }
+    }
+
     // Merge sort
     public static void mergeSort(int[] array) {
         int firstCell = (int) Math.pow(2, Math.ceil(Math.log(array.length)));
